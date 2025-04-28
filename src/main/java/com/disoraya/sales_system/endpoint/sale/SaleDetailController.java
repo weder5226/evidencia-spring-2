@@ -34,8 +34,8 @@ public class SaleDetailController {
   @DeleteMapping("/{saleId}/{productId}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
   public void deleteById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer saleId,
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer productId
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("saleId") Integer saleId,
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("productId") Integer productId
   ) {
     saleDetailService.deleteById(saleId, productId);
   }

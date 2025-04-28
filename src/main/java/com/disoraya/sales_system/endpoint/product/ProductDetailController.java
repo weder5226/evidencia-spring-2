@@ -41,7 +41,7 @@ public class ProductDetailController {
   @GetMapping("/available/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public String getAvailableNameById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     return productDetailService.getAvailableNameById(id);
   }
@@ -50,7 +50,7 @@ public class ProductDetailController {
   @GetMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public ProductDetailView getById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     return productDetailService.getById(id);
   }
@@ -86,7 +86,7 @@ public class ProductDetailController {
   @PutMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public OutProductDetDto updateById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id,
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id,
       @Validated(OnUpdate.class) @RequestBody InpProductDetDto productDetailDto
   ) {
     return productDetailService.updateById(id, productDetailDto);
@@ -96,7 +96,7 @@ public class ProductDetailController {
   @DeleteMapping("/{id}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
   public void deleteById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     productDetailService.deleteById(id);
   }

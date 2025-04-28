@@ -57,7 +57,7 @@ public class SupervisorController {
   @PutMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public OutSupervisorDto updateById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id,
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id,
       @Validated(OnUpdate.class) @RequestBody InpSupervisorDto supervisorDto
   ) {
     return supervisorService.updateById(id, supervisorDto);
@@ -67,7 +67,7 @@ public class SupervisorController {
   @DeleteMapping("/{id}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
   public void deleteById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     supervisorService.deleteById(id);
   }

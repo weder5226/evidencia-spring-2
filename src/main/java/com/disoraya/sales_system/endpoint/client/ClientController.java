@@ -34,7 +34,7 @@ public class ClientController {
   @GetMapping("/name/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public String getNameById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     return clientService.getNameById(id);
   }
@@ -43,7 +43,7 @@ public class ClientController {
   @GetMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public ClientView getById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     return clientService.getById(id);
   }
@@ -94,7 +94,7 @@ public class ClientController {
   @PutMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public OutClientDto updateById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id,
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id,
       @Validated(OnUpdate.class) @RequestBody InpClientDto clientDto
   ) {
     return clientService.updateById(id, clientDto);
@@ -104,7 +104,7 @@ public class ClientController {
   @DeleteMapping("/{id}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
   public void deleteById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     clientService.deleteById(id);
   }

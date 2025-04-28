@@ -35,7 +35,7 @@ public class SaleController {
   @GetMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public SaleView getById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     return saleService.getById(id);
   }
@@ -79,7 +79,7 @@ public class SaleController {
   @PutMapping("/{id}")
   @ResponseStatus(code = HttpStatus.OK)
   public OutSaleDto updateById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id,
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id,
       @Validated(OnUpdate.class) @RequestBody InpSaleDto saleDto
   ) {
     return saleService.updateById(id, saleDto);
@@ -89,7 +89,7 @@ public class SaleController {
   @DeleteMapping("/{id}")
   @ResponseStatus(code = HttpStatus.NO_CONTENT)
   public void deleteById(
-      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable Integer id
+      @Min(value = 1, message = ValidationMessage.MIN) @PathVariable("id") Integer id
   ) {
     saleService.deleteById(id);
   }
