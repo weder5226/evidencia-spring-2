@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SalesSystemApplication<Disoraya-Sales-System-evidencia-spring-2>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.disoraya.sales_system.SalesSystemApplication",
+      "projectName": "Disoraya-Sales-System-evidencia-spring-2",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
