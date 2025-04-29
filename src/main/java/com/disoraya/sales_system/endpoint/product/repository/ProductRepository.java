@@ -11,15 +11,15 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
   boolean existsByName(String name);
-  
+
   boolean existsByNameIgnoreCase(String name);
 
-  @Query("SELECT p.name FROM Product p WHERE p.id = :id")
+  @Query("SELECT p.name FROM Product p WHERE p.id = ?1")
   Optional<String> findNameById(Integer id);
 
   List<Product> findByIdIn(Collection<Integer> ids);
 
   @Modifying
-  @Query("DELETE FROM Product p WHERE p.id = :id")
+  @Query("DELETE FROM Product p WHERE p.id = ?1")
   void deleteSearchingById(Integer id);
 }

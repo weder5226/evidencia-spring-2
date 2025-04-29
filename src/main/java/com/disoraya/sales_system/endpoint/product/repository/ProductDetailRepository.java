@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ProductDetailRepository extends JpaRepository<ProductDetail, Integer> {
   @Modifying
-  @Query("DELETE FROM ProductDetail pd WHERE pd.id = :id")
+  @Query("DELETE FROM ProductDetail pd WHERE pd.id = ?1")
   void deleteSearchingById(Integer id);
 }

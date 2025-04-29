@@ -10,13 +10,13 @@ import java.util.Optional;
 public interface ClientRepository extends JpaRepository<Client, Integer> {
   boolean existsByIdNumber(String idNumber);
 
-  @Query("SELECT c.idNumber FROM Client c WHERE c.id = :id")
+  @Query("SELECT c.idNumber FROM Client c WHERE c.id = ?1")
   Optional<String> findIdNumberById(Integer id);
 
-  @Query("SELECT CONCAT(c.firstName, ' ', c.lastName) FROM Client c WHERE c.id = :id")
+  @Query("SELECT CONCAT(c.firstName, ' ', c.lastName) FROM Client c WHERE c.id = ?1")
   Optional<String> findNameById(Integer id);
 
   @Modifying
-  @Query("DELETE FROM Client c WHERE c.id = :id")
+  @Query("DELETE FROM Client c WHERE c.id = ?1")
   void deleteSearchingById(Integer id);
 }

@@ -8,10 +8,10 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface SaleDetailRepository extends JpaRepository<SaleDetail, SaleDetailId> {
   @Modifying
-  @Query("DELETE FROM SaleDetail sd WHERE sd.id.saleId = :saleId")
+  @Query("DELETE FROM SaleDetail sd WHERE sd.id.saleId = ?1")
   void deleteSearchingBySaleId(Integer saleId);
 
   @Modifying
-  @Query("DELETE FROM SaleDetail sd WHERE sd.id = :id")
+  @Query("DELETE FROM SaleDetail sd WHERE sd.id = ?1")
   void deleteSearchingById(SaleDetailId id);
 }

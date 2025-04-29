@@ -9,6 +9,6 @@ public interface SupervisorRepository extends JpaRepository<Supervisor, Integer>
   boolean existsByEmail(String email);
 
   @Modifying
-  @Query("DELETE FROM Supervisor s WHERE s.id = :id")
+  @Query("DELETE FROM Supervisor s WHERE s.id = ?1")
   void deleteSearchingById(Integer id);
 }
